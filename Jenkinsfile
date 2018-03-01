@@ -3,16 +3,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''export PATH=PATH:/usr/local/bin
-
-npm i'''
+        echo 'Build'
       }
     }
-    stage('Lint') {
+    stage('Lint & Unit tests') {
       parallel {
         stage('Lint') {
           steps {
-            sh 'npm run lint'
+            echo 'Lint'
           }
         }
         stage('Unit Test') {
